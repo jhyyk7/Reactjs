@@ -8,10 +8,15 @@ class ReadContent extends Component{
           <h2>{this.props.title}</h2>
           {this.props.desc}
          
-          <p><input type="button" value="Update" onClick={function(e){
+          <p><a href="/update"  onClick={function(e){
             e.preventDefault();
-            this.props.onChangePage();
+            this.props.onChangePage('update');
+          }.bind(this)}>Update</a></p>
+          <p><input type="button" value="Delete" onClick={function(e){
+            e.preventDefault();
+            this.props.onChangePage('delete')
           }.bind(this)}></input></p>
+          
       </article>
       );
     }

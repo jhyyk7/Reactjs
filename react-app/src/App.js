@@ -58,11 +58,11 @@ class App extends Component {
     else if(this.state.mode==='read'){         
           var _content=this.getcontent();
           _article= <ReadContent title={_content.title} desc={_content.desc} onChangePage={
-            function(e){
+            function(_mode){
               this.setState({
-                mode:'update'
+                mode:_mode
               })
-              console.log(e)
+            
             }.bind(this)
           }></ReadContent>
           
@@ -105,6 +105,34 @@ class App extends Component {
         })
       }.bind(this)}></UpdateContent>
      
+    }
+    else if(this.state.mode==='delete'){
+      
+      if(window.confirm('really?')){
+        
+        var tocs=Array.from(this.state.toc)
+        for(var i=0;i<tocs.length;i++){
+          console.log(i)
+          if(tocs[i].id===this.state.selected_content_id){
+            tocs.splice(i,1);
+            break;
+          }
+      }                
+
+      
+        alert('deleted')
+        this.setState({
+          mode:'welcome',
+          toc:tocs
+        })
+      }
+      else{
+        this.setState({
+          mode:'read'
+        })
+      }
+      
+
     }
     
    
