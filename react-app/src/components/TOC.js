@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 
 class TOC extends Component{
     shouldComponentUpdate(newProps,newState){
-      console.log('return -----------> TOC shouldCOmponent ')
+     
       if(this.props.data===newProps.data){
         return false;
         //NOTE: false=> render 함수 호출 X, true=>render 함수 호출O 따라서 CRUD로 data의 변경이 있을 때만 render함수 호출하는게 효율적이다.
@@ -10,7 +10,7 @@ class TOC extends Component{
       return true;
     }
     render(){
-      console.log('TOC render')
+    
       var lists=[];
       var data=this.props.data;
       var i=0;
